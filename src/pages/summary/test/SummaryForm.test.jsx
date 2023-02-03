@@ -33,9 +33,16 @@ test("Checkbox enables button on first click and disables on second click", asyn
 
 test ("popover  responds to hover", async() => {
   const user = userEvent.setup();
-  // popover starts out hidden
-
-  // popover appears on mouseover of checkbox label
-
+  render (<SummaryForm />);
+  // popover starts out hidden, we expect it not to be there, so use "query"
+  const nullPopover = screen.queryByText(/no ice cream will actually be delivered/i);
+  expect(nullPopover).not.toBeInTheDocument();
+  // popover appears on mouseover of checkbox label, we expect the popover to be there, so use "get"
+  const termsAndConditions = screen.getByText(/terms and condiitions/i);
+  await user.hover(termsAndConditions);
+  const popover = screen.getByText(/no ice cream will actually be delivered/i);
+  expect(popover).toBeInTheDocument();
   // popoover disappears when the mouse is out
+  await user.hover(termsAndConditions);
+  expect(popover).not.toBeInTheDocument();
 });
