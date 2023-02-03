@@ -15,7 +15,7 @@ test("Initial conditions", () => {
   expect(confirmationButton).toBeDisabled(); 
 });
 
-test("Checkbox enables button on first click and disables on second click", () => {
+test("Checkbox enables button on first click and disables on second click", async () => {
   const user = userEvent.setup();
 
   render(<SummaryForm />);
@@ -24,9 +24,9 @@ test("Checkbox enables button on first click and disables on second click", () =
   });
   const confirmButton = screen.getByRole("button", { name: /confirm order/i });
 
-  user.click(checkbox);
+  await user.click(checkbox);
   expect(confirmButton).toBeEnabled();
 
-  user.click(checkbox);
+  await user.click(checkbox);
   expect(confirmButton).toBeDisabled();
 });
