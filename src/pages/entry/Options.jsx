@@ -25,5 +25,5 @@ export default function Options({ optionType }) {
       imagePath={item.imagePath}
     />
   ));
-  return <div>optionItems</div>;
+  return <div>{optionItems}</div>;
 }
