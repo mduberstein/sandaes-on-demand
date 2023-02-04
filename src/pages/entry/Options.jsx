@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Row from "react-bootstrap/Row";
 import ScoopOption from "./ScoopOption";
 
 export default function Options({ optionType }) {
@@ -25,5 +26,5 @@ export default function Options({ optionType }) {
       imagePath={item.imagePath}
     />
   ));
-  return <div>{optionItems}</div>;
+  return <Row>{optionItems}</Row>;
 }
