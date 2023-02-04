@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import Options from '../Options'
 
 test ('displays image form each scoop from the server', () => {
-  render(<Options optionsType="scoops"/> );
+  render(<Options optionType="scoops"/> );
 
   // find images, name here is the altText property of the img html tag
   const scoopImages = screen.getAllByRole('img', {name: /scoop$/i});
