@@ -21,6 +21,7 @@ test("handles error for scoops and toppings routes", async () => {
     //   name: "An unexpected error occured. Please try again later.",
     //   }
     );
+    // console.log(alerts);
     expect(alerts).toHaveLength(2);
   });
 });
